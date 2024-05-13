@@ -132,9 +132,15 @@ monthlycategorytrenddistribution.update_yaxes(showgrid = False, gridcolor = 'rgb
 monthlycategorytrenddistribution.update_xaxes(showgrid = False, gridcolor = 'rgba(0,0,0,0)', zeroline = False, zerolinecolor = "rgba(0, 0, 0, 0)")
 
 layout = html.Div(
-    children = [
-        dbc.Row(
-            children = [
+   children=[
+      dbc.Row(
+          dcc.Dropdown(
+              superstore['Segment'].unique(),placeholder="select a segment",id="segment_dropdown"
+              
+          )
+      ),
+      
+            dbc.Row(children = [
                 dbc.Col(
                     children = dcc.Graph(figure = categoryquantitydistribution)
                 ),
